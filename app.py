@@ -1,9 +1,9 @@
 from flask import Flask, render_template
 import data
+app = Flask(__name__)
 
 tours = data.tours  # список туров
 departures = data.departures  # направления
-app = Flask(__name__)
 
 
 @app.route('/')
@@ -37,4 +37,5 @@ def tour(id):
     return render_template("tour.html", b=b, tours=tours, departures=departures, id=id)  # Тур конкретный
 
 
-app.run()
+if __name__ == '__main__':
+    app.run()
